@@ -108,127 +108,101 @@ static void shCharacterSetPlayer(SubCharacter *scp)
 
 INCLUDE_ASM("asm/nonmatchings/Chacter/m3_sc", shCharacterInitialize);
 
-#define HEATHER_CHARA_ID 0x100
-#define DOUGLAS_CHARA_ID 0x101
-#define CLAUDIA_CHARA_ID 0x102
-#define VINCENT_CHARA_ID 0x103
-#define DOUGLAS_CC_CHARA_ID 0x104
-#define DOUGLAS_DD_CHARA_ID 0x105
-#define DOUBLE_HEAD_CHARA_ID 0x200
-#define NUMB_BODY_CHARA_ID 0x201
-#define CLOSER_CHARA_ID 0x202
-#define NURSE_CHARA_ID 0x203
-#define INSANE_CANCER_CHARA_ID 0x204
-#define PENDULUM_CHARA_ID 0x205
-#define SCRAPER_CHARA_ID 0x206
-#define SEWER_MONSTER_CHARA_ID 0x207
-#define EN_DED1_CHARA_ID 0x208
-#define CAROUSEL_HORSE_CHARA_ID 0x209
-#define SLURPER_E_CHARA_ID 0x20a
-#define SLURPER_X_CHARA_ID 0x20b
-#define SPLIT_WORM_CHARA_ID 0x210
-#define MISSIONARY_CHARA_ID 0x211
-#define VALTIEL_CHARA_ID 0x212
-#define LEONARD_WOLF_CHARA_ID 0x213
-#define GOD_CHARA_ID 0x214
-#define MEMORY_OF_ALESSA_CHARA_ID 0x215
-#ifdef NON_MATCHING
 void func_0012F090(SubCharacter* scp)
 {
-    u16 kind = scp->kind;
-    int value;
+    u_short kind = scp->kind;
 
     switch (kind)
     {
-        case GOD_CHARA_ID:
-        case SLURPER_E_CHARA_ID:
-        case MEMORY_OF_ALESSA_CHARA_ID:
-        case LEONARD_WOLF_CHARA_ID:
-        case DOUBLE_HEAD_CHARA_ID:
-        case CLOSER_CHARA_ID:
-        case SLURPER_X_CHARA_ID:
-        case MISSIONARY_CHARA_ID:
-        case 0x20C: /* unknown */
-        case CAROUSEL_HORSE_CHARA_ID:
-        case EN_DED1_CHARA_ID:
-        case SEWER_MONSTER_CHARA_ID:
-        case SCRAPER_CHARA_ID:
-        case PENDULUM_CHARA_ID:
-        case INSANE_CANCER_CHARA_ID:
-        case NURSE_CHARA_ID:
-        case NUMB_BODY_CHARA_ID:
-        case SPLIT_WORM_CHARA_ID:
+
+        case HEATHER_CHARA_ID:
+            shCharacterSetPlayer(scp);
             return;
 
+        case DOUGLAS_CHARA_ID:
+        case DOUGLAS_CC_CHARA_ID:
+        case DOUGLAS_DD_CHARA_ID:
+            func_0024CA90(scp);
+            return;
 
         case CLAUDIA_CHARA_ID:
-            func_00241560(CLAUDIA_CHARA_ID);
+            func_00241560(scp);
             return;
 
         case VINCENT_CHARA_ID:
-            func_0025D150(CLAUDIA_CHARA_ID);
+            func_0025D150(scp);
             return;
 
         case 0x180: /* unknown */
-            func_00198DF0(0x180);
+            func_00198DF0(scp);
             return;
 
         case VALTIEL_CHARA_ID:
-            func_002FE1A0(0x180);
+            func_002FE1A0(scp);
             return;
 
-        default:
+        case DOUBLE_HEAD_CHARA_ID:
+        case CLOSER_CHARA_ID:
+        case NUMB_BODY_CHARA_ID:
+        case NURSE_CHARA_ID:
+        case INSANE_CANCER_CHARA_ID:
+        case PENDULUM_CHARA_ID:
+        case SCRAPER_CHARA_ID:
+        case SEWER_MONSTER_CHARA_ID:
+        case EN_DED1_CHARA_ID:
+        case CAROUSEL_HORSE_CHARA_ID:
+        case SLURPER_E_CHARA_ID:
+        case SLURPER_X_CHARA_ID:
+        case 0x20C: /* unknown */
+        case MISSIONARY_CHARA_ID:
+        case SPLIT_WORM_CHARA_ID:
+        case LEONARD_WOLF_CHARA_ID:
+        case GOD_CHARA_ID:
+        case MEMORY_OF_ALESSA_CHARA_ID:
             func_0022EB70(scp);
+            return;
+
+
+        default:
             break;
     }
 
-    if (kind == HEATHER_CHARA_ID) {
-        shCharacterSetPlayer(scp);
-        return;
+    if (kind >> 8 != 0x10) {
+        if (kind >> 8 == 7) {
+            return;
+        }
+        switch (kind >> 8)
+        {        
+            case 4:
+                if (kind & 0x80) {
+                    func_001430C0(scp);
+                    return;
+                }
+                func_00142EA0(scp);
+                return;
+    
+            case 8:
+                if (kind & 0x80) {
+                    func_001A8420(scp);
+                    return;
+                }
+                func_001A8330(scp);
+                return;
+    
+            case 9:
+                func_001A94D0(scp);
+                return;
+    
+            
+            case 3:
+            case 5:
+                func_00143360(scp);
+                return;
+        }
     }
 
-    if (kind == DOUGLAS_CC_CHARA_ID ||
-        kind == DOUGLAS_DD_CHARA_ID ||
-        kind == DOUGLAS_CHARA_ID
-    )
-    {
-        func_0024CA90();
-        return;
-    }
-
-
-    value = (int)kind >> 8;
-
-    switch (value)
-    {
-        case 4:
-            if (kind & 0x80)
-                func_001430C0(7, value);
-            else
-                func_00142EA0(7, value);
-            return;
-
-        case 8:
-            if (kind & 0x80)
-                func_001A8420(7, value);
-            else
-                func_001A8330(7, value);
-            return;
-
-        case 9:
-            func_001A94D0(7, value);
-            return;
-
-        case 5:
-        case 3:
-        default:
-            func_00143360(7, value);
-            return;
-    }
+    func_00143360(scp);
 }
-#else
-INCLUDE_ASM("asm/nonmatchings/Chacter/m3_sc", func_0012F090);
-#endif
 
 
 int shCharacter_Manage_Init() {
