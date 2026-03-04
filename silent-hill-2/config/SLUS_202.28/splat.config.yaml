@@ -12,3 +12,7 @@ options:
   asm_inc_header: |
     .set noat      /* allow manual use of $at */
     .set noreorder /* don't insert nops after branches */
+  generated_macro_inc_content: |
+    # Prepend $ to VU registers.
+    .set ACC, $ACC
+    .set Q, $Q

@@ -55,4 +55,9 @@
 .endm
 
 
+# Prepend $ to VU registers.
+.set ACC, $ACC
+.set Q, $Q
+
+
 .endif
