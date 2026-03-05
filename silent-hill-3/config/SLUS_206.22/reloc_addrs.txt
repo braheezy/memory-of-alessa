@@ -1790,31 +1790,31 @@ rom:0x128CC0 reloc:MIPS_PC16 symbol:.L00228798 addend:0x4
 rom:0x12C608 reloc:MIPS_PC16 symbol:.L0022C1D8 addend:0x4
 rom:0x12C704 reloc:MIPS_PC16 symbol:.L0022C1A8 addend:0x4
 rom:0x12E868 reloc:MIPS_PC16 symbol:.L0022E330 addend:0x4
-rom:0x130058 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130090 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300A0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300B0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300C0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300D0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300E0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1300F0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130100 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130110 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130120 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130130 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130140 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130150 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130160 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130170 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x130180 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
-rom:0x1301B8 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x1301F0 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130200 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130210 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130220 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130230 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130240 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
-rom:0x130250 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130058 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130090 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300A0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300B0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300C0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300D0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300E0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1300F0 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130100 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130110 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130120 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130130 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130140 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130150 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130160 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130170 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x130180 reloc:MIPS_PC16 symbol:.L0022FC10 addend:0x4
+// rom:0x1301B8 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x1301F0 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130200 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130210 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130220 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130230 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130240 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
+// rom:0x130250 reloc:MIPS_PC16 symbol:.L0022FCE0 addend:0x4
 rom:0x130F38 reloc:MIPS_PC16 symbol:.L002309E8 addend:0x4
 rom:0x131E7C reloc:MIPS_PC16 symbol:.L00233394 addend:0x4
 rom:0x131FB4 reloc:MIPS_PC16 symbol:.L00233394 addend:0x4
