@@ -1,6 +1,19 @@
 #include "en_common.h"
 
-INCLUDE_ASM("asm/nonmatchings/Chacter/en_common", func_0022EB70);
+void func_0022EB70(SubCharacter* scp) {
+    int i;
+    EnemyWork* dp = &D_01F27760;
+    for (i = 0; i < 0x20; i++) {
+        if (dp->unk_0x160 == 0) {
+            dp->scp = scp;
+            dp->unk_0x160 = i + 1;
+            func_0022FAC0(dp);
+            return;
+        }
+        dp++;
+    }
+}
+
 
 INCLUDE_ASM("asm/nonmatchings/Chacter/en_common", func_0022EBD0);
 
