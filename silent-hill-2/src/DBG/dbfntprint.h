@@ -22,7 +22,20 @@ typedef struct DebugPrintInfo {
     signed int yR; // offset 0x24, size 0x4
 } DebugPrintInfo;
 
+#ifdef DEBUG
+#define shDBG_print_string(...) _shDBG_print_string(...)
+#else
+#define shDBG_print_string(...)
+#endif
+extern void _shDBG_print_string(char * st /* r2 */, signed int ix /* r2 */, signed int iy /* r2 */);
+
 extern DebugPrintInfo d;
+
+void dbfntlocate(int x, int y);
+
+void dbfntlocateR(int x, int y);
+
+static int printline(char* cp, char* top);
 
 static void _dbfntprint(char * buf /* r2 */);
 

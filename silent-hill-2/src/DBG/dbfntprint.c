@@ -1,12 +1,58 @@
 #include "dbfntprint.h"
 
-INCLUDE_ASM("asm/nonmatchings/DBG/dbfntprint", dbfntlocate);
+void dbfntlocate(int x, int y) {
+    d.x = x;
+    d.xofs = x;
+    d.y = y;
+    d.yofs = y;
+}
 
-INCLUDE_ASM("asm/nonmatchings/DBG/dbfntprint", dbfntlocateR);
+void dbfntlocateR(int x, int y) {
+    d.xofsR = x;
+    d.yR = y;
+    d.yofsR = y;
+}
 
-INCLUDE_ASM("asm/nonmatchings/DBG/dbfntprint", printline);
+int printline(char* cp, char* top) {
+    char line[128]; // r29+0x20
+    int l; // r16
+    l = cp - top;
+    if (l > 0) {
+        // ensure less than 128 lines
+        if (l >= 0x80u) l = 0x7F;
+        memcpy(line, top, l);
+        line[l] = 0;
+        _shDBG_print_string((char* ) &line, d.x, d.y);
+    } else {
+        l = 0;
+    }
 
+    return l;
+}
+
+#ifdef NON_MATCHING
+int printlineR(char* cp, char* top) {
+    char line[128]; // r29+0x20
+    int l; // r16
+
+    l = cp - top;
+    if (l > 0) {
+        // wrap?
+        if (l >= 0x80U) {
+            top += l - 0x7F;
+            l = 0x7F;
+        }
+        memcpy(line, top, l);
+        line[l] = 0;
+        _shDBG_print_string((char* ) line, d.xofsR - (l * d.w), d.yR);
+    } else {
+        l = 0;
+    }
+    return l;
+}
+#else
 INCLUDE_ASM("asm/nonmatchings/DBG/dbfntprint", printlineR);
+#endif
 
 void _dbfntprint(char* buf) {
     char * cp; // r16
