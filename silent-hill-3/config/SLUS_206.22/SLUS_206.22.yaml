@@ -69,17 +69,48 @@ segments:
       - [0x1128f0, asm,     Effect2/hh_class_4]
       - [0x1133a0, asm,     Effect2/hh_class_5]
       - [0x113cc0, asm,     text_1_1]
+      - [0x116520, asm,     Enemy/en_one]        # DOUBLE_HEAD
+      - [0x117180, asm,     text_2_0]
+      - [0x1261a0, asm,     Enemy/en_smb]        # SPLIT_WORM
+      - [0x12ef30, asm,     text_2_C]
       - [0x12f0f0, c,       Chacter/en_common]
-      - [0x130590, asm,     text_1_2]
+      - [0x130590, asm,     Enemy/en_aid]        # CLOSER
+      - [0x131040, asm,     text_2_1]
       - [0x141b20, asm,     Effect2/hh_class_6]
       - [0x142490, asm,     Effect2/hh_class_7]
       - [0x142d90, asm,     Effect2/hh_class_8]
       - [0x143870, asm,     text_1_3]
+      - [0x143a40, asm,     Enemy/en_ckn]        # NUMB_BODY
+      - [0x144620, asm,     text_2_2]
+      - [0x15dcd0, asm,     Enemy/en_nse]        # NURSE
+      - [0x15e760, asm,     text_2_3]
+      - [0x166ad0, asm,     Enemy/en_deb]        # INSANE_CANCER
+      - [0x167530, asm,     text_2_4]
+      - [0x187340, asm,     Enemy/en_apb]        # MISSIONARY
+      - [0x1876c0, asm,     text_2_D]
+      - [0x191480, asm,     Enemy/en_fly]        # PENDULUM
+      - [0x19b1f0, asm,     text_2_5]
       - [0x1b7fb0, c,       movie/pss_vibuf]
       - [0x1b8f50, asm,     text_1_4]
+      - [0x1ba6a0, asm,     Enemy/en_ap2]        # SCRAPER
+      - [0x1bab20, asm,     text_2_6]
+      - [0x1d2630, asm,     Enemy/en_shb]        # GOD
+      - [0x1d2a40, asm,     text_2_E]
+      - [0x1d75a0, asm,     Enemy/en_rod]        # SEWER_MONSTER
+      - [0x1d7610, asm,     text_2_7]
+      - [0x1e01c0, asm,     Enemy/en_mry]        # CAROUSEL_HORSE
+      - [0x1e0360, asm,     text_2_9]
+      - [0x1e0c80, asm,     Enemy/en_bhr]        # MEMORY_OF_ALESSA
+      - [0x1e1490, asm,     text_2_F]
+      - [0x1eea70, asm,     Enemy/en_ded1]       # EN_DED1
+      - [0x1eea80, asm,     text_2_8]
       - [0x1f3330, asm,     Effect2/hh_class_9]
       - [0x1f3d50, asm,     Effect2/hh_class_A]
       - [0x1f4a10, asm,     text_1_5]
+      - [0x2048e0, asm,     Enemy/en_lie]        # SLURPER_E
+      - [0x2052c0, asm,     text_2_A]     
+      - [0x20e0d0, asm,     Enemy/en_lix]        # SLURPER_X
+      - [0x20e540, asm,     text_2_B]
       - [0x238080, textbin, vutext]
       - [0x23aa80, data,    data]
       - [0x24f4c0, rodata,  rodata_0]
