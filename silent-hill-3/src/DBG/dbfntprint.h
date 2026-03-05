@@ -24,6 +24,15 @@ typedef struct DebugPrintInfo {
 
 extern DebugPrintInfo d;
 
+#ifdef DEBUG
+#define shDBG_print_string(...) _shDBG_print_string(...)
+#else
+#define shDBG_print_string(...)
+#endif
+extern void _shDBG_print_string(char * st /* r2 */, signed int ix /* r2 */, signed int iy /* r2 */);
+
+static int printline(char* cp, char* top);
+
 static void _dbfntprint(char * buf /* r2 */);
 
 #endif

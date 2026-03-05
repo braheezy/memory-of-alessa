@@ -1,6 +1,21 @@
 #include "dbfntprint.h"
 
-INCLUDE_ASM("asm/nonmatchings/DBG/dbfntprint", printline);
+int printline(char* cp, char* top) {
+    char line[128]; // r29+0x20
+    int l; // r16
+    l = cp - top;
+    if (l > 0) {
+        // ensure less than 128 lines
+        if (l >= 0x80u) l = 0x7F;
+        memcpy(line, top, l);
+        line[l] = 0;
+        shDBG_print_string((char* ) &line, d.x, d.y);
+    } else {
+        l = 0;
+    }
+
+    return l;
+}
 
 void _dbfntprint(char* buf) {
     char * cp;
