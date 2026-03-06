@@ -6,8 +6,8 @@ void func_01F6D680_city_00(void) {
 
 void func_01F6D690_city_00(void) {
     City00Struct sp;
-    Bar* var_s0;
-    Bar* temp_s1;
+    City00Entry* var_s0;
+    City00Entry* temp_s1;
 
     D_01F6DB80_city_00 = 1;
     func_001C2C10(&sp, &sp.unk10);

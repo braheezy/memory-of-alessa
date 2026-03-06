@@ -14,10 +14,10 @@ typedef struct City00Entry {
     __int128 unk10;
     __int128 unk20;
     __int128 unk30;
-} Bar;
+} City00Entry;
 
-Bar* func_0012FD80(int, int);     
-Bar* func_001C2C10(void*, __int128*); 
+City00Entry* func_0012FD80(int, int);     
+City00Entry* func_001C2C10(void*, __int128*); 
 
 extern int D_01F6DB80_city_00;
 
