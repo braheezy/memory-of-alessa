@@ -12,6 +12,7 @@ tools/mwcps2
 tools/wibo-*
 tools/binutils-mips-ps2-decompals
 tools/objdiff-*
+tools/m2ctx.py
 
 .DS_Store
 .venv
