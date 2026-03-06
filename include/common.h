@@ -68,4 +68,11 @@ typedef union Q
     signed int iv[4];      // offset 0x0, size 0x10
 } Q;
 
+inline void qcopy(void* dst, void* src) {
+    asm volatile ("\
+         lq t7, 0(%1)\n\
+         sq t7, 0(%0)"
+    : "=r"(dst): "r"(src): "t7");
+}
+
 #endif
