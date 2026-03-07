@@ -23,6 +23,12 @@ typedef struct Amusement01Work {
     float angle; // 0x34
 } Amusement01Work;
 
+typedef union DWORD
+{
+    u_int u32[2];
+    float fv[2];
+} DWORD;
+
 int func_01F6D680_amusement_01();
 
 void func_001C0EB0(void (*)(__int128*, int*, __int128*, int*, int*), int, int);
@@ -72,6 +78,13 @@ extern void func_001DC9E0(SubCharacter*, int);
 extern int func_001DD9F0(SubCharacter*);   
 extern void func_001433A0(SubCharacter*, int, int);
 extern void func_0016D8F0(int);
+extern void func_0013D250(int, int, float);
+extern void func_0013D280(int);
+extern int func_0016CB70();
+extern void func_0016E400(int, int);
+extern int func_0016E650(int);
+extern int func_001C2580(int);
+
 
 extern int func_0016BED0(int, int);
 extern int func_00199820();
@@ -105,6 +118,12 @@ extern int D_01F74C90_amusement_01;
 extern int D_01F74CB8_amusement_01;
 extern int D_01F74CF8_amusement_01;
 extern float D_01F74DB0_amusement_01;
+extern int D_01F74370_amusement_01;
+extern float D_01F74A90_amusement_01;
+extern float D_01F74AF0_amusement_01;
+extern int D_01F74D08_amusement_01;
+extern DWORD D_01F74A70_amusement_01;
+extern DWORD* D_01F74D10_amusement_01;
 extern int D_1D316A0;
 extern int D_1D316AC;
 extern u_int D_1D31648;

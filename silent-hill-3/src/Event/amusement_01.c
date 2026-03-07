@@ -353,9 +353,105 @@ int func_01F6F6C0_amusement_01(void) {
     return ret;
 }
 
-INCLUDE_ASM("asm/nonmatchings/Event/amusement_01", func_01F6F7A0_amusement_01);
+#ifdef NON_MATCHING
+int func_01F6F7A0_amusement_01(void) {
+    SubCharacter* heather;
+    float temp_f0;
+    float temp_f1;
+    int temp_s1;
 
-INCLUDE_ASM("asm/nonmatchings/Event/amusement_01", func_01F6FA20_amusement_01);
+    heather = shCharacterGetSubCharacter(0x100, -1);
+    switch (D_01F74C88_amusement_01) {              /* irregular */
+        case 0:
+            func_00190A20(2);
+            D_01F74C88_amusement_01++;
+            /* fallthrough */
+        case 1:
+            if (func_0016C1C0(0x95) == 0) {
+                return 0;
+            }
+            if (func_0016CB70() == 1) {
+                func_00190A20(0);
+                D_01F74C88_amusement_01 = 0;
+                return 1;
+            }
+            D_01F74D10_amusement_01 = &D_01F74A70_amusement_01;
+            func_0016C3C0();
+            func_001C2290(3, 0.5f);
+            D_01F74D08_amusement_01 = func_0016E650(0x22);
+            D_01F74C88_amusement_01 = 2;
+        case 2:
+            if (func_001C2580(2) == 0) {
+                return 0;
+            }
+            func_001DC9E0(heather, 0);
+            D_01F74C88_amusement_01 = 3;
+        case 3:
+            temp_s1 = func_0016C540(&D_01F74A90_amusement_01, &D_01F74AF0_amusement_01);
+            temp_f0 = func_001643C0();
+            if (temp_f0 >= 10.0f) {
+                func_0013D250(0, (int) &D_01F74370_amusement_01, 1.0f);
+            }
+            temp_f1 = D_01F74D10_amusement_01->fv[0];
+            if (!(temp_f1 <= 0.0f) && (temp_f1 <= temp_f0)) {
+                func_0013D250(0, D_01F74D10_amusement_01->u32[1], 1.0f);
+                D_01F74D10_amusement_01++;
+            }
+            if (temp_s1 == 0) {
+                return 0;
+            }
+            func_001C2290(5, 0.5f);
+            func_0016E400(0x22, D_01F74D08_amusement_01);
+            D_01F74C88_amusement_01 += 1;
+        case 4:
+            func_00190A20(0);
+            func_0013D280(0);
+            func_001DC9E0(heather, 1);
+            D_01F74C88_amusement_01 = 0;
+            D_1D31648 |= 0x04000000;
+    default:
+        return 1;
+    }
+}
+#else
+INCLUDE_ASM("asm/nonmatchings/Event/amusement_01", func_01F6F7A0_amusement_01);
+#endif
+
+int func_01F6FA20_amusement_01() {
+    switch (D_01F74C88_amusement_01) {
+        case 0:
+            func_00190A20(2);
+            D_1D3169C |= 0x2000;
+            if ((D_1D3169C >> 0xE) & 1) {
+                func_0016D8F0(0x47);
+                D_01F74C88_amusement_01 = 3;
+                return 0;
+            }
+            D_01F74C88_amusement_01++;
+    
+        case 1:
+            D_01F74C88_amusement_01++;
+    
+        case 2:
+            if (func_0016C1C0(0xC2) == 0) {
+                return 0;
+            }
+            D_01F74C88_amusement_01 = 0;
+    
+        default:
+            break;
+    
+        case 3:
+            if (func_0016C1C0(0xC4) == 0) {
+                return 0;
+            }
+            D_01F74C88_amusement_01 = 0;
+            D_1D316A0 |= 0x40000000;
+    }
+
+    func_00190A20(0);
+    return 1;
+}
 
 int func_01F6FB50_amusement_01() {
     switch (D_01F74C88_amusement_01) {
