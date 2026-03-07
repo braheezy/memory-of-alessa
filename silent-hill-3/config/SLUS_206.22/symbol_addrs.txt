@@ -403,7 +403,7 @@ scTag2 = 0x002b7b50;
 viBufCreate = 0x002b7b80;
 viBufReset = 0x002b7bf0;
 viBufBeginPut = 0x002b7d50;
-vifBufEndPut = 0x002b7e50;
+viBufEndPut = 0x002b7e50;
 viBufAddDMA = 0x002b7eb0;
 viBufStopDMA = 0x002b80e0;
 viBufRestartDMA = 0x002b81c0;
@@ -411,6 +411,14 @@ viBufDelete = 0x002b84e0;
 viBufFlush = 0x002b8530;
 viBufPutTs = 0x002b86d0;
 viBufGetTs = 0x002b8800;
+@115 = 0x0039DC00; // visibility:local
+
+// more sdk stuff
+CreateSema = 0x001DC150;
+WaitSema = 0x001DC190;
+SignalSema = 0x001DC1A0;
+DeleteSema = 0x00100A70;
+ErrMessage = 0x002B7400;
 
 // dbfntprint.c
 _dbfntvsnprintf = 0x001dbd90;
