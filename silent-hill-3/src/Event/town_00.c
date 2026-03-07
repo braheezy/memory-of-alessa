@@ -69,7 +69,7 @@ void func_01F6D8A0_town_00() {
 
     int* cur;
     for (cur = &D_01F6DF90_town_00; *cur != 0; cur++) {
-        temp_v0 = func_0012FD80(0x200, (s16)*cur);
+        temp_v0 = shCharacterGetSubCharacter(0x200, (s16)*cur);
         if (!temp_v0) {
             continue;
         }

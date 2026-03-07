@@ -30,7 +30,7 @@ void RObjectFunction(SubCharacter *this)
         this->step++;
         break;
     case OBJECT_STEP_DRAW:
-        scp = func_0012FD80(this->kind - 0x80, -1);
+        scp = shCharacterGetSubCharacter(this->kind - 0x80, -1);
         wall_pos = func_00150C70();
         if (scp != NULL)
         {

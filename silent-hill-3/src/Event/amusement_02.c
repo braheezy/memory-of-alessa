@@ -179,16 +179,16 @@ int func_01F6DC30_amusement_02(void) {
     temp_v0 = func_0016C540(&D_01F76340_amusement_02, &D_01F763A0_amusement_02);
     if (temp_v0 == 0) {
         int temp_s1;
-        temp_v0_2 = func_0012FD80(0x215, 0);
+        temp_v0_2 = shCharacterGetSubCharacter(0x215, 0);
         if (temp_v0_2 != 0) {
             func_001D37E0(temp_v0_2, 3, 0, 0, 0);
         }
-        temp_s1 = func_0012FD80(0x215, 0x18D);
+        temp_s1 = shCharacterGetSubCharacter(0x215, 0x18D);
         func_001E22F0(0x215, 0x18D, 0);
         func_001DC9E0(temp_s1, 0);
     } else {
         int temp_s1_2;
-        temp_s1_2 = func_0012FD80(0x215, 0x18D);
+        temp_s1_2 = shCharacterGetSubCharacter(0x215, 0x18D);
         func_001E22F0(0x215, 0x18D, 1);
         func_001DC9E0(temp_s1_2, 1);
         D_01F76688_amusement_02 = 0;

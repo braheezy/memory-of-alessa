@@ -14,7 +14,7 @@ void func_01F6DB60_building_b_02(void) { //I will debug it later
     var_s0 = 0;
 
     for (var_s1 = D_01F6EE80_building_b_02; *var_s1 != 0; var_s1++) {
-        temp_a0 = func_0012FD80(0x20A, *var_s1);
+        temp_a0 = shCharacterGetSubCharacter(0x20A, *var_s1);
         if (temp_a0 == 0) {
             continue;
         }

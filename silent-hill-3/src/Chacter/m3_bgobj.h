@@ -10,7 +10,7 @@
 extern int mirror_mode;
 extern float wall_pos;
 
-struct SubCharacter *func_0012FD80(short kind /* r2 */, short id /* r2 */);
+struct SubCharacter *shCharacterGetSubCharacter(short kind /* r2 */, short id /* r2 */);
 int func_00142EE0(struct SubCharacter *scp /* r16 */);
 void RObjectFunction(struct SubCharacter *);
 
