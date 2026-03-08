@@ -93,7 +93,8 @@ segments:
       - [0x191480, asm,     Enemy/en_fly]        # PENDULUM
       - [0x19b1f0, asm,     text_2_5]
       - [0x1b7fb0, c,       movie/pss_vibuf]
-      - [0x1b8f50, asm,     text_1_4]
+      - [0x1b8f50, c,       movie/pss_videodec]
+      - [0x1b99a0, asm,     text_1_4]
       - [0x1ba6a0, asm,     Enemy/en_ap2]        # SCRAPER
       - [0x1bab20, asm,     text_2_6]
       - [0x1d2630, asm,     Enemy/en_shb]        # GOD
@@ -117,7 +118,8 @@ segments:
       - [0x23aa80, data,    data]
       - [0x24f4c0, rodata,  rodata_0]
       - [0x29e180, .rodata, movie/pss_vibuf]
-      - [0x29e198, rodata,  rodata_1]
+      - [0x29e198, rodata,  movie_pss_videodec]
+      - [0x29e1a0, rodata,  rodata_1]
       - [0x2be000, .rodata, DS_Pad/ds_sequencer]
       - [0x2be020, rodata,  rodata_2]
       - [0x2be940, .rodata, Font/font]

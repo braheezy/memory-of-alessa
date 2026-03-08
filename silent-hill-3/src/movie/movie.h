@@ -4,11 +4,8 @@
 #include "libcdvd.h"
 #include "eekernel.h"
 
-#pragma divbyzerocheck on
-
 #define min(x, y) (((x) > (y))? (y): (x))
 #define max(x, y) (((x) < (y))? (y): (x))
-#define bound(val, x) ((((val) + (x) - 1) / (x))*(x))
 
 typedef struct {
 	int play_event_no;
@@ -38,6 +35,7 @@ extern u_int controller_val;
 extern int videoDecTh;
 extern int frd;
 extern int play_mov_no;
+
 
 
 #endif

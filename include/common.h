@@ -1,6 +1,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#pragma divbyzerocheck on
+
 #include "libvu0.h"
 
 typedef unsigned char u8;
@@ -77,5 +79,7 @@ inline void qcopy(void* dst, void* src) {
          sq t7, 0(%0)"
     : "=r"(dst): "r"(src): "t7");
 }
+
+extern void * memcpy(void *__dest, void *__src, u_int __n);
 
 #endif

@@ -42,11 +42,16 @@ OVERLAYS ?= \
 	town_00
 LINK ?= 1
 
+SPECIAL_OPT_LEVEL = -O0,p
+DEFAULT_OPT_LEVEL = -O3,p
+SPECIAL_OPT_FILES = pss_videodec.c
+OPT_LEVEL = $(if $(filter $(notdir $<),$(SPECIAL_OPT_FILES)),$(SPECIAL_OPT_LEVEL),$(DEFAULT_OPT_LEVEL))
+
 SOURCE_OVERLAY_ARCHIVE := $(ROM)/B0.MFA
 
 MWCC := $(TOOLS)/mwcps2/3.0.3/mwccps2.exe
 MWCC_TAR := mwcps2-3.0.3-020716.tar.gz
-MWCC_FLAGS := -O3,p -sym=off,noelf -sdatathreshold 0 -str readonly \
+MWCC_FLAGS = $(OPT_LEVEL) -sym=off,noelf -sdatathreshold 0 -str readonly \
 	-cwd source -i "$(SRC)" -i "$(INCLUDE)" -i "$(COMMON_INCLUDE)"
 
 MWLD := $(TOOLS)/mwcps2/2.4/mwldps2.exe

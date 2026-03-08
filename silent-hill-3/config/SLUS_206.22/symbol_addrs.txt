@@ -166,6 +166,7 @@ sceVif1PkAddCode = 0x00120468;
 sceVif1PkReserve = 0x001203D0;
 sceVif1PkRef = 0x00120128;
 sceMpegCreate = 0x0011dd20;
+sceMpegDelete = 0x011DF28;
 
 // sdk
 litodp = 0x00124b50;
@@ -392,8 +393,33 @@ MovieInit = 0x002b3830;
 MovieMain = 0x002b3860;
 
 // pss_videodec.c
-cpy2area = 0x002b7630;
+cpy2area = 0x002b9270;
+// cpy2area = 0x002b7630; ???
+videoDec = 0x1f68080;
+mpegError = 0x2b9150;
+mpegNodata = 0x2b9170;
+mpegStopDMA = 0x2b91c0;
+mpegRestartDMA = 0x2b91f0;
+mpegTS = 0x2b9220;
+sys_mpeg = 0x1f692c0; // size:0x48
+cscVu1Init = 0x2B44F0;
 videoDecCreate = 0x002b89d0;
+videoDecSetStream = 0x002b8b00;
+videoDecBeginPut = 0x002B8B50;
+videoDecEndPut = 0x002B8BA0;
+videoDecDelete = 0x002B8BD0;
+videoDecAbort = 0x002B8C10;
+videoDecGetState = 0x002B8C30;
+videoDecSetState = 0x002B8C50;
+videoDecPutTs = 0x002B8C90;
+videoDecFlush = 0x002B8D00;
+videoDecMain = 0x002B8E60;
+SignalSemaPss = 0x003113E0; 
+switchThread = 0x002B6F50;
+WaitSemaPss = 0x00311390;
+voBufReset = 0x002B9510;
+voBuf = 0x01F67FE0; // size:24
+// @49 = 0x0039DC18; // visibility:local size:0x4
 
 // pss_vibuf.c
 getFIFOindex = 0x002b7a30;
