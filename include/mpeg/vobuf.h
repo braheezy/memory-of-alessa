@@ -9,7 +9,7 @@
 #include "mpeg/cscvu1.h"
 #include "libipu.h"
 
-#define VOBUF_STATUS_ 0
+#define VOBUF_STATUS_EMPTY 0
 #define VOBUF_STATUS_TOPDONE 1
 #define VOBUF_STATUS_FULL 2
 
