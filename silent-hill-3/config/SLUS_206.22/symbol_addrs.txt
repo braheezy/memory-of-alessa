@@ -87,6 +87,7 @@ shCharacterInitialize = 0x0012f030; // ?
 shCharacterGetFreeList = 0x0012ee60;
 shCharacterCutList = 0x0012ef90;
 SCSetModel = 0x0012fbc0;
+AddFreeList = 0x0012ee90;
 shCharacterGetSubCharacter = 0x0012FD80;
 // ?
 shCharacterAnimeOneFrameSize = 0x001dcc40;
@@ -243,7 +244,6 @@ ClusterAnimeExec = 0x00140860;
 ClusterAnimeGetWeights = 0x00140a50;
 shCharacterSetClusterAnimeWork = 0x00140b40;
 shCharacterClusterAnimeSet = 0x00140bb0;
-AddFreeList = 0x012ee90;
 DataId = 0x1403d0;
 ClearWeights = 0x140430;
 printf = 0x00100590;

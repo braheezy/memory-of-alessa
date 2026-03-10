@@ -184,53 +184,46 @@ typedef struct SubCharacter
     int index;          // 0x0
     u_int status;       // 0x4
     u_int step;         // 0x8
+
     u_short kind;       // 0xC
     u_short id;         // 0xE
     u_short unk10;      // 0x10
     short unk12;        // 0x12
     u_int sub_st;       // 0x14
     u_int model_type;   // 0x16
+
     Vector4 pos;        // 0x20
     Vector4 rot;        // 0x30
     Vector4 pos_spd;    // 0x40
     Vector4 rot_spd;    // 0x50
-    // struct /* @anon3 */
-    // {
 
-    //     float d[4][4];
-    // } mat;
-    int unk0[8];
-    int unk;
-    int unk7[7];
-    void (*function)(struct SubCharacter *);
-    struct shSkelton *sk_top;
-    float eye_y;
-    float center_y;
-    float spd;
-    float spd_org;
-    struct SubCharacter *pre;
-    struct SubCharacter *next;
-    float grnd_normal[4];
-    float grnd_height;
-    Vector4 b_pos;
-    Vector4 b_rot;
-    int en_first_status;
-    int colis_fall_timer;
-    struct shBattleInfo battle;
-    struct _CL_VHIT_RESULT eye;
-    void (*effecter_function)(struct SubCharacter *);
-    float spd_y;
-    float spd_roty;
+    int unk60[8];       // 0x60
+    int unk80;          // 0x80
+    int unk84[7];       // 0x84
+
+    void (*function)(struct SubCharacter *); // 0xA0
+
+    struct shSkelton *sk_top; // 0xA4
+
+    int unkA8[4]; // 0xA8
+
+    struct SubCharacter *pre; // 0xB8
+    struct SubCharacter *next; // 0xBC
+
+    int unkC0[18];    // 0xC0
+    int unk108[0x28]; // 0x108
+
     u_char work[4];
-    void *enemy_p;
-    void *unk_1b0;
-    void *unk_1b4;
-    void *unk_1bc;
-    void *unk_1c0;
-    void *unk_1c4;
-    void *unk_1c8;
-    void *unk_1d0;
-    void *unk_1d4;
+
+    u_int unk1AC;
+    u_int unk1B0;
+    u_int unk1B4;
+    u_int unk1Bc;
+    u_int unk1C0;
+    u_int unk1C4;
+    u_int unk1C8;
+    u_int unk1D0;
+    u_int unk1D4;
 } SubCharacter;
 
 typedef struct sh3gfw_ModelDraw_MAN

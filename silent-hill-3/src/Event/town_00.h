@@ -2,6 +2,7 @@
 #define TOWN_00_H
 
 #include "common.h"
+#include "Chacter/m3_sc.h"
 
 typedef struct Town00Struct
 {
@@ -41,9 +42,9 @@ extern int D_01F6DF84_town_00;
 extern float D_01F6DF88_town_00;
 extern int D_01F6DF90_town_00;
 
-extern int shCharacterGetSubCharacter(int, long);
+extern SubCharacter* shCharacterGetSubCharacter(int, long);
 extern int func_00199770(int);
-extern int func_001E2110(int);
+extern int func_001E2110(SubCharacter*);
 extern void shCharacter_Manage_Delete(int, u_short);
 
 extern u_int D_1D31684;

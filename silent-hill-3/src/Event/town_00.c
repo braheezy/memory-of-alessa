@@ -64,17 +64,17 @@ int func_01F6D7A0_town_00() {
 void func_01F6D8A0_town_00() {
     int value;
     u8 byte;
-    int temp_v0;
+    SubCharacter* scp;
     int count = 0;
 
     int* cur;
     for (cur = &D_01F6DF90_town_00; *cur != 0; cur++) {
-        temp_v0 = shCharacterGetSubCharacter(0x200, (s16)*cur);
-        if (!temp_v0) {
+        scp = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, (short) *cur);
+        if (!scp) {
             continue;
         }
 
-        if (func_001E2110(temp_v0) == 0) {
+        if (func_001E2110(scp) == 0) {
             count++;
         }
 
@@ -91,7 +91,7 @@ void func_01F6D8A0_town_00() {
                 break;
             case 2:
                 if (!((D_1D31684 >> 3) & 1)) {
-                    shCharacter_Manage_Delete(0x200, (u16) *cur);
+                    shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, (u_short) *cur);
                 }
                 break;
             default:
@@ -103,7 +103,7 @@ void func_01F6D8A0_town_00() {
                 } else if (3 >= count) {
                     continue;
                 }
-                shCharacter_Manage_Delete(0x200, (u16) *cur);
+                shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, (u_short) *cur);
         }
     }
     

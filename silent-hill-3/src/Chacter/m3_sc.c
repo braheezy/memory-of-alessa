@@ -11,7 +11,7 @@ static SubCharacter* shCharacterGetFreeList() {
     return scp;
 }
 
-static void func_0012EE90(SubCharacter* scp) {
+static void AddFreeList(SubCharacter* scp) {
     scp->next = D_003DAD50;
     D_003DAD50 = (SubCharacterDisp*) scp;
 }
@@ -299,7 +299,7 @@ int shCharacter_Manage_SetDataAdresss(SubCharacter* scp) {
         scp_d->models[2] = pMD;
         scp->function(scp);
         if (scp_d->anime_adr != 0) {
-            if ((int) scp_d->sc.unk_1c4 & 0x2000) {
+            if (scp_d->sc.unk1C4 & 0x2000) {
                 func_001DC700(&scp_d->sc, &scp_d->sc.rot, &scp_d->sc.pos);
                 func_001DCF10(&scp_d->sc);
             }
@@ -328,36 +328,41 @@ static void shCharacterDelete(SubCharacter* scp) {
     }
 
     if (scp == D_003DAD58) {
-        shCharacterSetPlayer(0);
+        shCharacterSetPlayer(NULL);
     }
+
     if (scp_d->model_adr == 0) {
-        func_00140D60(func_001DCAD0((s16) scp->kind));
+        func_00140D60(func_001DCAD0((short) scp->kind));
     } else {
-        func_00140CD0(scp->unk);
+        func_00140CD0(scp->unk80);
     }
+
     scp_d->anime.top = NULL;
     scp_d->model_adr = 0;
+
     func_001C1B80(scp_d->work);
     scp_d->work = NULL;
     ClusterAnimeDelete(scp_d->cluster_anime, scp->index);
     scp_d->cluster_anime = NULL;
     scp_d->clani_adr = 0;
     shCharacterCutList(scp);
+
     scp->kind = 0;
     scp->id = 0;
     scp->unk12 = -1;
     scp->unk10 = 0;
-    scp->unk = 0;
+    scp->unk80 = 0;
     scp->pre = NULL;
     scp->next = NULL;
     scp->function = NULL;
     scp->sk_top = NULL;
-    scp->eye_y = 0.0f;
-    scp->center_y = 0.0f;
-    scp->spd = 0.0f;
-    scp->grnd_normal[2] = 0.0f;
-    func_0012EE90(scp);
-    D_003DAD5C -= 1;
+    scp->unkA8[0] = 0;
+    scp->unkA8[1] = 0;
+    scp->unkA8[2] = 0;
+    scp->unkC0[2] = 0;
+
+    AddFreeList(scp);
+    D_003DAD5C--;
 }
 
 
