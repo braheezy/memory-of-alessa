@@ -251,7 +251,7 @@ $(BUILD)/$(SERIAL): $(SETUP) $(OVERLAY_TARGETS) $(LINKER_SCRIPT)
 	$(LD)
 	$(CHECK_MATCH_PERCENT)
 
-$(BUILD)/%.c.o: $(PROJECT)/%.c $(PROJECT)/%.h
+$(BUILD)/%.c.o: $(PROJECT)/%.c
 	@mkdir -p "$(@D)"
 	$(CC)
 
