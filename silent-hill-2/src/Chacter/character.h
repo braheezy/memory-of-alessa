@@ -646,7 +646,7 @@ typedef struct _CL_HITPOLY_COLUMN
     u_int material; // offset 0x8, size 0x4
     int flg;        // offset 0xC, size 0x4
     float p[2][4];  // offset 0x10, size 0x20
-} s_CL_HITPOLY_COLUMN;
+} CL_HITPOLY_COLUMN;
 
 // E:\work\sh2(CVS全取得)\src\Event\stage\stg_end_dog.c
 typedef struct PAD_3D

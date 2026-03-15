@@ -39,9 +39,62 @@ INCLUDE_ASM("asm/nonmatchings/Collision/cl_main", clAddCollectVector);
 
 INCLUDE_ASM("asm/nonmatchings/Collision/cl_main", clCheckBg2Chara);
 
-INCLUDE_ASM("asm/nonmatchings/Collision/cl_main", clCheckHitWallCollision);
+static void clCheckHitWallCollision(CL_HITPOLY_COLUMN* col, s32* whnum, CL_HITPOLY_PLANE* pl, s32* ptr) {
+    CL_HITRESULT cres;
 
-INCLUDE_ASM("asm/nonmatchings/Collision/cl_main", clCheckHitDynamicWallCollision);
+    while (*ptr != -1) {
+        // check if column intersects wall
+        clCheckColumn2WallHit(&cres, &pl[*ptr], col);
+        if (cres.chk != 0) {
+#ifdef DEBUG
+            if (!(*whnum < 32)) {
+                printf("cl_main.c:1194> assert:(%s)\n", "*whnum < 32");
+                while (1) {};
+            }
+#endif
+            // store result in clWallHitData
+            clWallHitData[*whnum].kind = cres.chk;
+            clWallHitData[*whnum].pl = (CL_HITPOLY_PLANE*) cres.pd;
+            cres.cv[1] = 0.0f; // zero out y value of collision vector, since this is wall collision
+            qcopy(&clWallHitData[*whnum].cv, &cres.cv);
+
+            *whnum += 1;
+        }
+        ptr++;
+    }
+}
+
+static void clCheckHitDynamicWallCollision(CL_HITPOLY_COLUMN* col, s32* whnum) {
+    int ac; // r2
+    struct _CL_HITRESULT cres; // r29+0x60
+    int i; // r16
+
+    ac = clDynamicWallListAct ? 0 : 1;
+
+    for (i = 0; i < clDynamicWallList[ac].use; i++) {
+        int j; // r17
+        for (j = 0; clDynamicWallList[ac].dw[i][j].kind != 0; j++) {
+#ifdef DEBUG
+            // check if column intersects dynamic wall
+            clCheckColumn2WallHit(&cres, &clDynamicWallList[ac].dw[i][j], col);
+#endif
+            if (cres.chk != 0) {
+                if (!(*whnum < 32)) {
+                    printf("cl_main.c:1194> assert:(%s)\n", "*whnum < 32");
+                    while (1) {};
+                }
+
+                // store result in clWallHitData
+                clWallHitData[*whnum].kind = cres.chk;
+                clWallHitData[*whnum].pl = (CL_HITPOLY_PLANE*) cres.pd;
+                cres.cv[1] = 0.0f; // zero out y value of collision vector, since this is wall collision
+                qcopy(&clWallHitData[*whnum].cv, &cres.cv);
+
+                *whnum += 1;
+            }
+        }
+    }
+}
 
 INCLUDE_ASM("asm/nonmatchings/Collision/cl_main", clMakeWallHitCollectVector);
 

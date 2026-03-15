@@ -1,7 +1,7 @@
 #ifndef CL_MAIN_H
 #define CL_MAIN_H
 
-#include "common.h"
+#include "sh2_common.h"
 #include "Chacter/character.h"
 #include "Chacter/sh_character_battle.h"
 
@@ -42,9 +42,9 @@ typedef struct _CL_WALLHITDAT
 {
     // total size: 0x50
     signed int kind;              // offset 0x0, size 0x4
-    float cv[4];                  // offset 0x10, size 0x10
+    sceVu0FVECTOR cv;             // offset 0x10, size 0x10
     struct _CL_HITPOLY_PLANE *pl; // offset 0x20, size 0x4
-    float normal[4];              // offset 0x30, size 0x10
+    sceVu0FVECTOR normal;         // offset 0x30, size 0x10
     float nang;                   // offset 0x40, size 0x4
 } CL_WALLHITDAT;
 typedef struct _CL_BATTLE_RESULT
@@ -131,6 +131,14 @@ typedef struct _CL_DYNAMICWALL_LIST
     struct _CL_HITPOLY_PLANE *dw[32]; // offset 0x4, size 0x80
 } CL_DYNAMICWALL_LIST;
 
+typedef struct _CL_HITRESULT {
+    // total size: 0x40
+    signed int chk; // offset 0x0, size 0x4
+    sceVu0FVECTOR cp; // offset 0x10, size 0x10
+    sceVu0FVECTOR cv; // offset 0x20, size 0x10
+    struct _CL_HITPOLY_HEAD * pd; // offset 0x30, size 0x4
+} CL_HITRESULT;
+
 #define CL_BATTLE_RESULT_SIZE 65
 
 static struct shAttackInfo sh2_attack_list[66]; // size: 0x948, address: 0x0
@@ -153,5 +161,13 @@ signed int clVHitListUse; // size: 0x4, address: 0x48D000
 struct _CL_VHIT_RESULT clVHitResult[64]; // size: 0x1000, address: 0x48C000
 float clswPerc[5]; // size: 0x14, address: 0x2A9980
 struct _CL_SELECT_MAP clSelectMap[128]; // size: 0x400, address: 0x48D1B0
+
+void clAllInitCollisionData();
+
+void clFrameInitCollisionData();
+
+static void clCheckColumn2WallHit(struct _CL_HITRESULT * cres /* r18 */, struct _CL_HITPOLY_PLANE * pl /* r17 */, struct _CL_HITPOLY_COLUMN * col /* r16 */);
+
+static void clCheckHitWallCollision(struct _CL_HITPOLY_COLUMN * col /* r19 */, signed int * whnum /* r18 */, struct _CL_HITPOLY_PLANE * pl /* r17 */, signed int * ptr /* r16 */);
 
 #endif CL_MAIN_H
