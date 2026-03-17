@@ -22,6 +22,12 @@ typedef struct
     int text_pos_param;
 } ModelTextPose;
 
+typedef struct
+{
+    ModelWork works[16];
+    void *current;
+} ModelWorkGroup;
+
 extern Model3Junk model3_junk;
 extern sceVu0FMATRIX D_003669A0;
 extern sceVu0FVECTOR D_00366910;
@@ -51,5 +57,5 @@ int func_001D0DB0(int tex);
 int func_001D0DF0(int tex);
 void sh3gfw_Thr_d2TextureSend(int tex0, int arg1, int tex1, int tex2);
 __int128 *func_001B5B00(int tex0, int text_pos_param, int arg2);
-
+void func_001D37C0(void *work, __int128 mask, __int128 value);
 #endif

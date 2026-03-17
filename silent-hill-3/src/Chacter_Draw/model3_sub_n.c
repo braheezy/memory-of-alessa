@@ -13,8 +13,26 @@ INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_sub_n", Model3WorkEquipmentFla
 
 INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_sub_n", func_001D37C0);
 
-INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_sub_n", func_001D37E0);
+long func_001D37E0(ModelWorkGroup *arg0, int equipment_id0, int equipment_id1, int equipment_id2, int equipment_id3)
+{
+    long id0;
+    long id1;
+    long id2;
+    long id3;
+    long one = 1;
+    long mask;
+    long temp;
+    long temp2;
 
+    id0 = equipment_id0;
+    id1 = equipment_id1;
+    id2 = equipment_id2;
+    id3 = equipment_id3;
+
+    mask = (one << id3) | ((one << id2) | (((one << id0) | 1) | (one << id1)));
+    func_001D37C0(arg0->current, -1, mask);
+    return (long)(int)mask;
+}
 void func_001D3860(void)
 {
     if (D_01EE3080 == 0)
