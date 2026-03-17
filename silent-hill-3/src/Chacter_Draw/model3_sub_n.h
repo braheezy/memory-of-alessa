@@ -4,7 +4,7 @@
 #include "common.h"
 #include "model_common.h"
 
-typedef unsigned __int128 uint128;
+typedef unsigned __int128 u128;
 typedef struct ModelWork
 {
     // total size: 0x30
@@ -51,6 +51,6 @@ int func_001D0D80(int tex);
 int func_001D0DB0(int tex);
 int func_001D0DF0(int tex);
 void sh3gfw_Thr_d2TextureSend(int tex0, int arg1, int tex1, int tex2);
-uint128 *func_001B5B00(int tex0, int text_pos_param, int arg2);
+u128 *func_001B5B00(int tex0, int text_pos_param, int arg2);
 
 #endif

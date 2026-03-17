@@ -60,7 +60,7 @@ void sh3_Model3UpdateTextures(void *model_)
     int texture_blocks_offset;
     int tex1;
     ModelTextPose *pose;
-    uint128 *src;
+    u128 *src;
     char *dst_base;
 
     model = model_;
