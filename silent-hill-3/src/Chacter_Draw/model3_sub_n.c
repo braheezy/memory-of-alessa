@@ -134,22 +134,85 @@ void sh3_Model3UpdateTextures(void *model_)
     }
 }
 
-INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_sub_n", Model3UpdateMatrices);
+void Model3UpdateMatrices(void *model_, void *work_, float (*mwm)[4], int pef)
+{
+    int n_skeletons;
+    sceVu0FMATRIX *matrices;
+    int i;
+    sceVu0FMATRIX work_camera_matrix;
+    sceVu0FMATRIX top_skeleton_matrix;
+    sceVu0FMATRIX pef_matrix;
+    sceVu0FMATRIX *common_matrix;
+    sceVu0FMATRIX *current_matrix;
+    int offset;
 
-void Model3UpdateEnvelopeMatrices(Model* model) {
+    n_skeletons = ((Model *)model_)->n_skeletons;
+    matrices = ((ModelWork *)work_)->matrices;
+
+    (*(ModelMatrix *)pef_matrix) = (*(ModelMatrix *)D_003669A0);
+
+    sceVu0CopyMatrix(work_camera_matrix, *(sceVu0FMATRIX *)&model3_junk.camera);
+    sceVu0MulMatrix(top_skeleton_matrix, work_camera_matrix, mwm);
+    sceVu0MulMatrix(model_common_work->top_skeleton_matrix, top_skeleton_matrix, *matrices);
+
+    top_skeleton_matrix[0][3] = top_skeleton_matrix[0][2];
+    top_skeleton_matrix[1][3] = top_skeleton_matrix[1][2];
+    top_skeleton_matrix[2][3] = top_skeleton_matrix[2][2];
+    top_skeleton_matrix[3][3] = top_skeleton_matrix[3][2];
+
+    if (pef != 0)
+    {
+        if (0 < n_skeletons)
+        {
+            i = 0;
+            offset = 0;
+            do
+            {
+                current_matrix = (sceVu0FMATRIX *)((char *)matrices + offset);
+                common_matrix = (sceVu0FMATRIX *)((char *)model_common_work + offset);
+                shMulMatrix(*current_matrix, pef_matrix, *current_matrix);
+                shMulMatrix(*common_matrix, top_skeleton_matrix, *current_matrix);
+                i += 1;
+                offset += 0x40;
+            } while (i < n_skeletons);
+        }
+    }
+    else
+    {
+        int matrix_offset;
+        int index;
+
+        if (0 < n_skeletons)
+        {
+            index = 0;
+            matrix_offset = 0;
+            do
+            {
+                shMulMatrix(*(sceVu0FMATRIX *)((char *)model_common_work + matrix_offset), top_skeleton_matrix,
+                            *(sceVu0FMATRIX *)((char *)matrices + matrix_offset));
+                index += 1;
+                matrix_offset += 0x40;
+            } while (index < n_skeletons);
+        }
+    }
+}
+
+void Model3UpdateEnvelopeMatrices(Model *model)
+{
     int n_pairs = model->n_skeleton_pairs;
-    sceVu0FMATRIX* default_pcms = (sceVu0FMATRIX*) ((int) model + model->default_pcms_offset);
-    sceVu0FMATRIX*  skeleton_matrices = (sceVu0FMATRIX*) &model_common_work->skeleton_matrices[0];
-    struct SkeletonPair * pairs = (struct SkeletonPair*) ((int) model + model->skeleton_pairs_offset);
-    sceVu0FMATRIX* envelope_matrices = &model_common_work->envelope_matrices[0];
+    sceVu0FMATRIX *default_pcms = (sceVu0FMATRIX *)((int)model + model->default_pcms_offset);
+    sceVu0FMATRIX *skeleton_matrices = (sceVu0FMATRIX *)&model_common_work->skeleton_matrices[0];
+    struct SkeletonPair *pairs = (struct SkeletonPair *)((int)model + model->skeleton_pairs_offset);
+    sceVu0FMATRIX *envelope_matrices = &model_common_work->envelope_matrices[0];
     int i;
 
-    for (i = 0; i < n_pairs; i++) {
-        struct SkeletonPair * pair = &pairs[i];
-        float (* em)[4] = envelope_matrices[i];
-        int child_no = pair->child_no; 
-        float (* pcm)[4] = default_pcms[i]; // r2
-        float (* cvm)[4] = skeleton_matrices[child_no]; // r2
+    for (i = 0; i < n_pairs; i++)
+    {
+        struct SkeletonPair *pair = &pairs[i];
+        float(*em)[4] = envelope_matrices[i];
+        int child_no = pair->child_no;
+        float(*pcm)[4] = default_pcms[i];             // r2
+        float(*cvm)[4] = skeleton_matrices[child_no]; // r2
 
         // envelope matrix = child skeleton matrix * parent-child matrix
         shMulMatrix(em, cvm, pcm);

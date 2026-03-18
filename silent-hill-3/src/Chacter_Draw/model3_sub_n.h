@@ -28,6 +28,12 @@ typedef struct
     void *current;
 } ModelWorkGroup;
 
+// By wrapping, we encourage more quadword ops
+typedef struct
+{
+    sceVu0FMATRIX m;
+} ModelMatrix;
+
 extern Model3Junk model3_junk;
 extern sceVu0FMATRIX D_003669A0;
 extern sceVu0FVECTOR D_00366910;
