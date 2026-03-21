@@ -14,7 +14,7 @@ int shCharacter_Manage_SetDataAdresss(SubCharacter *scp)
         return 0;
     }
 
-    pMD = sh2gfw_Get_pMD((s64)scp_d->sc.kind);
+    pMD = sh2gfw_Get_pMD((long)scp_d->sc.kind);
     if (pMD == NULL)
     {
         return 0;

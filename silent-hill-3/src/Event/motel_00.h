@@ -30,8 +30,8 @@ extern int D_01F6E060_motel_00;
 extern int D_01F6E0C0_motel_00;
 extern int D_01F6E100_motel_00;
 extern float D_01F6E108_motel_00;
-extern int D_1D316AC;
-extern int D_1D31684;
-extern int D_1D316FC;
+extern u_int D_1D316AC;
+extern u_int D_1D31684;
+extern u_int D_1D316FC;
 
 #endif

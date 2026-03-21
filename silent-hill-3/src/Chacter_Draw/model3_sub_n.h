@@ -16,52 +16,17 @@ typedef struct ModelWork
     void *draw_hook_data;                     // offset 0x24, size 0x4
 } ModelWork;
 
-typedef struct
-{
-    int texture_id;
-    int text_pos_param;
-} ModelTextPose;
-
-typedef struct
-{
-    ModelWork works[16];
-    void *current;
-} ModelWorkGroup;
-
-// By wrapping, we encourage more quadword ops
-typedef struct
-{
-    sceVu0FMATRIX m;
-} ModelMatrix;
-
 extern Model3Junk model3_junk;
-extern sceVu0FMATRIX D_003669A0;
-extern sceVu0FVECTOR D_00366910;
-extern sceVu0FVECTOR D_00366920;
-extern sceVu0FVECTOR D_01EE15E0;
-extern sceVu0FVECTOR D_00366930;
-extern sceVu0FVECTOR D_00366940;
-extern sceVu0FVECTOR D_00366950;
-extern sceVu0FVECTOR D_00366960;
-extern sceVu0FVECTOR D_00366970;
-extern sceVu0FVECTOR D_00366980;
-extern sceVu0FVECTOR D_00366990;
 void shMulMatrix(sceVu0FMATRIX m0, sceVu0FMATRIX m1, sceVu0FMATRIX m2);
 
-extern int D_01EE3080;
-extern float D_00366918;
-extern float D_00366948;
-extern float D_00366938;
-extern float D_01EE15E8;
-extern float D_00366928;
+extern int initialized;
 
-float func_001B4200(void);
-float func_001B4210(void);
-s64 func_001CC710(int flag, int text_poses_offset, int texture_blocks_offset);
-int func_001D0D80(int tex);
-int func_001D0DB0(int tex);
-int func_001D0DF0(int tex);
-void sh3gfw_Thr_d2TextureSend(int tex0, int arg1, int tex1, int tex2);
-__int128 *func_001B5B00(int tex0, int text_pos_param, int arg2);
-void func_001D37C0(void *work, __int128 mask, __int128 value);
+/**
+ * @brief Gets cluster weights from `ModelWork`.
+ */
+float* func_001D3780(void *work_);
+
+extern float func_001B4200(void);
+extern float func_001B4210(void);
+
 #endif

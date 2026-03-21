@@ -4,7 +4,7 @@ INCLUDE_ASM("asm/nonmatchings/Event/hospital_b_01", func_01F6D680_hospital_b_01)
 
 void func_01F6D740_hospital_b_01(void) {
     
-    if ((D_1D31698 >> 6) & 1) {                
+    if (GET_BIT(D_1D31698, 6)) {                
         func_0016D170(0x3A98, D_01F6EBB0_hospital_b_01, 0, 0, 1.0f, 5000.0f, D_01F6EBC0_hospital_b_01);
     }
 }
@@ -59,7 +59,7 @@ int func_01F6D9D0_hospital_b_01(void) {
     int ret;
 
     ret = 0;
-    if (!((D_1D31698 >> 4) & 1)) {
+    if (!GET_BIT(D_1D31698, 4)) {
         D_01F6EB80_hospital_b_01 = 0;
         D_1D31698 |= 0x10;
         D_01F6EB88_hospital_b_01 = 0.0f;
@@ -87,7 +87,7 @@ int func_01F6D9D0_hospital_b_01(void) {
             D_1D31698 &= ~0x10;                        
             D_1D3172C |= 0x800;
             D_1D31694 |= 0x40000000;
-            D_1D317C8 |= 0x10;
+            D_1D317C0[2] |= 0x10;
     }
     return ret;
 }
@@ -97,20 +97,20 @@ void func_01F6DB80_hospital_b_01(void) {
     D_01F6EB90_hospital_b_01 = 0;
     switch (RoomName()) { 
         case 0xC5:
-            if ((D_1D31698 & 1) && !((D_1D31698 >> 1) & 1)) {
+            if (GET_BIT(D_1D31698, 0) && !GET_BIT(D_1D31698, 1)) {
                 D_1D31698 |= 2;
                 break;
             }
             break;
         case 0xC6:
             D_01F6EBA8_hospital_b_01 = 0;
-            if (!((D_1D31694 >> 0x13) & 1)) {
+            if (!GET_BIT(D_1D31694, 0x13)) {
                 D_1D31694 |= 0x80000;
             }
             break;
         case 0xC7:
             D_1D3172C |= 0x2000;
-            if (!((D_1D31694 >> 0x13) & 1)) {
+            if (!GET_BIT(D_1D31694, 0x13)) {
                 D_1D31694 |= 0x80000;
             }
             break;

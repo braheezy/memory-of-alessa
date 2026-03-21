@@ -224,15 +224,15 @@ INCLUDE_ASM("asm/nonmatchings/Font/font", fontPutYesNoSelectBar);
 void *fontTexLoad(int texadr, int clutadr)
 {
     font_dma_data[0x04] =
-        ((s64)(int)texadr << 32) | (0x14080000ULL << 32);
+        ((long)(int)texadr << 32) | (0x14080000ULL << 32);
 
     font_dma_data[0x14] =
-        ((s64)(int)clutadr << 32) | (0x00010000ULL << 32);
+        ((long)(int)clutadr << 32) | (0x00010000ULL << 32);
 
     font.tex0 =
-        (s64)(int)texadr |
+        (long)(int)texadr |
         (0x00066542ULL << 16) |
-        ((s64)(int)clutadr << 37) |
+        ((long)(int)clutadr << 37) |
         (0x20000000ULL << 32);
 
     return font_dma_data;

@@ -116,7 +116,7 @@ int func_01F6DAB0_sewer_00(void) {
   switch (D_01F6FE20_sewer_00) {
     case 0:
       func_00190A20(2);
-      if ((D_1D31664 >> 2) & 1) {
+      if (GET_BIT(D_1D31664, 2)) {
         func_001C2290(2, 0.0f);
         D_01F6FE20_sewer_00 = 3;
         continue;
@@ -128,7 +128,7 @@ int func_01F6DAB0_sewer_00(void) {
       }
       func_0016C3C0();
       if (func_0016CB70() == 0) {
-        if ((D_1D31660 >> 21) & 1) {
+        if (GET_BIT(D_1D31660, 21)) {
           func_001C2290(3, 0.8f);
           D_01F6FE20_sewer_00 = 3;
           func_0013D250(0, D_01F6F9F0_sewer_00, 1.0f);
@@ -144,7 +144,7 @@ int func_01F6DAB0_sewer_00(void) {
       D_01F6FE20_sewer_00 = 4;
       continue;
     case 2:
-      if ((D_1D31660 >> 24) & 1) {
+      if (GET_BIT(D_1D31660, 24)) {
         if (func_0016C1C0(0x1B) == 0) {
           return 0;
         }
@@ -201,7 +201,48 @@ INCLUDE_ASM("asm/nonmatchings/Event/sewer_00", func_01F6DE40_sewer_00);
 
 INCLUDE_ASM("asm/nonmatchings/Event/sewer_00", func_01F6DEC0_sewer_00);
 
-INCLUDE_ASM("asm/nonmatchings/Event/sewer_00", func_01F6E060_sewer_00);
+void func_01F6E060_sewer_00(void) {
+    short room_name;
+
+    D_01F6FE50_sewer_00 = 0;
+    D_01F6FE00_sewer_00 = 0;
+
+    room_name = RoomName();
+
+    switch (room_name) {
+        case 0x47:
+            func_001BE4B0(0);
+            func_0013D280(0);
+            break;
+        case 0x54:
+            D_01F6FE20_sewer_00 = 0;
+            D_01F6FE28_sewer_00 = 0;
+            if (GET_BIT(D_1D316AC, 0x1C)) {
+                func_00190A20(0);
+                D_1D316AC &= 0xEFFFFFFF;
+                break;
+            }
+        default:
+        case 0x48:
+        case 0x49:
+        case 0x4A:
+        case 0x4B:
+        case 0x4C:
+        case 0x4D:
+        case 0x4E:
+        case 0x4F:
+        case 0x50:
+        case 0x51:
+        case 0x52:
+        case 0x53:
+        case 0x56:
+            break;
+        case 0x55:
+            D_01F6FE60_sewer_00 = 0;
+            break;
+    }
+}
+
 
 INCLUDE_ASM("asm/nonmatchings/Event/sewer_00", func_01F6E130_sewer_00);
 

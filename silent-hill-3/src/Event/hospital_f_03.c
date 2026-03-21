@@ -4,7 +4,7 @@ int func_01F6D680_hospital_f_03(void) {
     int ret;
 
     ret = 0;
-    if (!((D_1D31688 >> 3) & 1)) {
+    if (!GET_BIT(D_1D31688, 3)) {
         func_00317420(0xC);
         D_01F70910_hospital_f_03 = 0;
         D_1D31688 |= 8;
@@ -74,7 +74,7 @@ int func_01F6DFA0_hospital_f_03(void) {
     int ret;
 
     ret = 0;
-    if (!((D_1D31684 >> 0x1D) & 1)) {
+    if (!GET_BIT(D_1D31684, 0x1D)) {
         D_01F70908_hospital_f_03 = 1;
         func_0016C3C0();
         D_1D31684 |= 0x20000000;
@@ -134,29 +134,29 @@ INCLUDE_ASM("asm/nonmatchings/Event/hospital_f_03", func_01F6EF40_hospital_f_03)
 void func_01F6F5D0_hospital_f_03(void) {
     int count;
     D_01F70890_hospital_f_03 = 0;
-    if (!((D_1D31680 >> 0x1E) & 1)) {
+    if (!GET_BIT(D_1D31680, 0x1E)) {
         func_01F6FC10_hospital_f_03();
         D_1D31680 |= 0x40000000;
     }
     switch (RoomName()) {
         case 0xB8:
             count = 0;
-            if ((D_1D31684 >> 0xF) & 1) {
+            if (GET_BIT(D_1D31684, 0xF)) {
                 count += 1;
             }
-            if ((D_1D31684 >> 0x12) & 1) {
+            if (GET_BIT(D_1D31684, 0x12)) {
                 count += 1;
             }
-            if ((D_1D31684 >> 0x15) & 1) {
+            if (GET_BIT(D_1D31684, 0x15)) {
                 count += 1;
             }
-            if (( D_1D31684 >> 0x19) & 1) {
+            if ( GET_BIT(D_1D31684, 0x19)) {
                 count += 1;
             }
-            if (( D_1D31684 >> 0x1C) & 1) {
+            if (GET_BIT(D_1D31684, 0x1C)) {
                 count += 1;
             }
-            if ((count >= 2) && !((D_1D31688 >> 2) & 1) && !(( D_1D31644 >> 5) & 1) && !((D_1D31684 >> 0x1F) & 1)) {
+            if ((count >= 2) && !GET_BIT(D_1D31688, 2) && !GET_BIT(D_1D31644, 5) && !GET_BIT(D_1D31684, 0x1F)) {
                 D_1D31684 |= 0x40000000;
                 break;
             }
@@ -164,7 +164,7 @@ void func_01F6F5D0_hospital_f_03(void) {
             break;
         case 0xB9:
             D_1D31724 |= 0x200000;
-            if (!((D_1D31684 >> 8) & 1) && !((D_1D31684 >> 9) & 1) && !((D_1D31684 >> 0xA) & 1)) {
+            if (!GET_BIT(D_1D31684, 8) && !GET_BIT(D_1D31684, 9) && !GET_BIT(D_1D31684, 0xA)) {
                 D_1D31684 |= 0x100;
                 break;
             }
@@ -179,13 +179,13 @@ void func_01F6F5D0_hospital_f_03(void) {
             D_01F708E0_hospital_f_03 = 0xBFA0D97C;        
             D_01F708D8_hospital_f_03 = 0x3DD67750;
     
-            if ((D_1D31680 >> 0x1A) & 1) {
+            if (GET_BIT(D_1D31680, 0x1A)) {
                 D_1D31680 |= 0x08000000;
                 break;
             }
             break;
         case 0xB7:
-            if ((func_00199C70(6) != 0) && !((D_1D31688 >> 0x12) & 1)) {
+            if ((func_00199C70(6) != 0) && !GET_BIT(D_1D31688, 0x12)) {
                 D_1D31688 |= 0x40000;
             } else {
                 D_1D31688 &= 0xFFFBFFFF;
@@ -205,7 +205,7 @@ void func_01F6F930_hospital_f_03(void) {
     switch (RoomName()) {
         case 0xB5:
             func_01F6E110_hospital_f_03();
-            if (!((D_1D31680 >> 7) & 1)) {
+            if (!GET_BIT(D_1D31680, 7)) {
                 func_0016CA40(1);
                 D_1D31724 |= 0x10000;
             } else {
@@ -213,18 +213,18 @@ void func_01F6F930_hospital_f_03(void) {
             }
             break;
         case 0xB6:
-            if (!((D_1D31680 >> 0x19) & 1)) {
+            if (!GET_BIT(D_1D31680, 0x19)) {
                 func_01F6EF40_hospital_f_03();
                 func_0016CA40(1);
             }
-            if (!((D_1D31644 >> 0xC) & 1)) {
+            if (!GET_BIT(D_1D31644, 0xC)) {
                 D_1D31724 |= 0x40000;
             } else {
                 D_1D31724 &= 0xFFFBFFFF;
             }
             break;
         case 0xB8:
-            if ((D_1D31684 >> 0x1E) & 1) {
+            if (GET_BIT(D_1D31684, 0x1E)) {
                 func_0016CA40(1);
                 D_1D31724 |= 0x100000;
             } else {
@@ -263,7 +263,7 @@ void func_01F6FAC0_hospital_f_03(void) {
 }
 
 int func_01F6FC10_hospital_f_03(void) {
-    if (!((D_1D31684 >> 2) & 1)) {
+    if (!GET_BIT(D_1D31684, 2)) {
         func_01F6FAC0_hospital_f_03();
         D_1D31684 |= 4;
     }

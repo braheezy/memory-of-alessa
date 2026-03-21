@@ -64,7 +64,7 @@ INCLUDE_ASM("asm/nonmatchings/Event/hospital_turning_00", func_01F6E470_hospital
 void func_01F6E540_hospital_turning_00(void) {
     float temp_f0;
 
-    if (((D_1D3168C >> 8) & 1) && (func_001E2050() == 0)) {
+    if ((GET_BIT(D_1D3168C, 8)) && (func_001E2050() == 0)) {
         switch (func_001E2070()) {
             case 0:
                 break;
@@ -131,7 +131,7 @@ void func_01F6E770_hospital_turning_00(void) {
                 func_00189FA0(0xFF, 0x10);
                 func_00189FA0(0xFF, 0x11);
             }
-            if (((D_1D31648 >> 0x10) & 1) && !((D_1D31648 >> 0x11) & 1)) {
+            if (GET_BIT(D_1D31648, 0x10) && !GET_BIT(D_1D31648, 0x11)) {
                 func_01F6EB90_hospital_turning_00(150.0f);
                 func_01F6EBB0_hospital_turning_00(1.0f);
                 func_003027E0();
@@ -141,7 +141,7 @@ void func_01F6E770_hospital_turning_00(void) {
             func_00332D20();
             func_00302870(0, 0);
             if (func_00190240() == 0) {
-                if (((D_1D31690 >> 0x11) & 1) && !((D_1D3168C >> 9) & 1)) {
+                if (GET_BIT(D_1D31690, 0x11) && !GET_BIT(D_1D3168C, 9)) {
                     D_01F713A0_hospital_turning_00 += shGetDT();
                     if (!(D_01F713A0_hospital_turning_00 < 0.3f)) {
                         func_0013D280(0);
@@ -149,7 +149,7 @@ void func_01F6E770_hospital_turning_00(void) {
                         D_1D3168C |= 0x200;
                         break;
                     }
-                } else if ((func_0022F150(3) != 0) && !((D_1D31690 >> 0x11) & 1)) {
+                } else if ((func_0022F150(3) != 0) && !GET_BIT(D_1D31690, 0x11)) {
                     D_01F713A0_hospital_turning_00 = 0.0f;
                     D_1D31690 |= 0x20000;
                     break;
@@ -160,7 +160,7 @@ void func_01F6E770_hospital_turning_00(void) {
             break;
         
         case 0xBC:
-            if (!((D_1D3168C >> 6) & 1)) {
+            if (!GET_BIT(D_1D3168C, 6)) {
                 func_0016CA40(1);
                 func_0016CA40(6);
                 clAddDynamicWall(&D_01F70420_hospital_turning_00);

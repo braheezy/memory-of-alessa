@@ -1,9 +1,5 @@
 #include "apart_00.h"
 
-static inline int get_bit(int bit) {
-    return (D_1D31670[bit / 32] >> (bit % 32)) & 1;
-}
-
 INCLUDE_ASM("asm/nonmatchings/Event/apart_00", func_01F6D680_apart_00);
 
 void func_01F6D680_apart_00(void);
@@ -192,7 +188,7 @@ INCLUDE_ASM("asm/nonmatchings/Event/apart_00", func_01F6E7A0_apart_00);
 
 void func_01F6E800_apart_00(void) {
 
-    if (!get_bit(0x51)) {
+    if (!GET_FLAG(D_1D31670, 0x51)) {
         func_01F6EB70_apart_00();
         D_1D31670[2]|= 0x20000;
     }
@@ -202,9 +198,9 @@ void func_01F6E800_apart_00(void) {
         case APARTMENTS_ROOFTOP:
             func_01F6E050_apart_00();
             D_01F70060_apart_00 = 0;
-            if (!((D_01D31640 >> 0x16) & 1)) {
+            if (!GET_BIT(D_01D31640, 0x16)) {
                 func_00316C50(0);
-                if ((D_01D31640 >> 0x15) & 1) {
+                if (GET_BIT(D_01D31640, 0x15)) {
                     func_001C2290(2, 0.0f);
                 }
             }
@@ -215,7 +211,7 @@ void func_01F6E800_apart_00(void) {
                 func_001C2290(2, 0.0f);
                 break;
             }
-            if (!get_bit(0x4E) && !(get_bit(0x45))) {
+            if (!GET_FLAG(D_1D31670, 0x4E) && !(GET_FLAG(D_1D31670, 0x45))) {
                 D_1D31670[2] |= 0x20;
             }
             D_1D3171C |= 0x200;
@@ -240,11 +236,11 @@ INCLUDE_ASM("asm/nonmatchings/Event/apart_00", func_01F6E9A0_apart_00);
 
 void func_01F6EB70_apart_00(void) {
     if (func_00199C70(7) == 1) {
-        if (!get_bit(0x47)) {
+        if (!GET_FLAG(D_1D31670, 0x47)) {
             D_1D31670[2] |= 0x80;
         }
     }
-    if ((func_00199C70(9) == 1) && !get_bit(0x4E)) {
+    if ((func_00199C70(9) == 1) && !GET_FLAG(D_1D31670, 0x4E)) {
         D_1D31670[2] |= 0x4000;
     }
 }

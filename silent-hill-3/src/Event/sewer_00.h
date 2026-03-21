@@ -1,8 +1,8 @@
 #ifndef SEWER_00_H
 #define SEWER_00_H
 
-#include "common.h"
 #include "Chacter/m3_sc.h"
+#include "common.h"
 
 void func_0013D250(int, int *, float);
 void func_0013D280(int);
@@ -42,7 +42,6 @@ void func_003174B0(float);
 int RoomName(void);
 u_char GetActionLevel(void);
 void SeCall(float, float, int);
-int shCharacter_Manage_Delete(u_short, u_short);
 
 extern int D_01F6F8F0_sewer_00[];
 extern int D_01F6F850_sewer_00[];

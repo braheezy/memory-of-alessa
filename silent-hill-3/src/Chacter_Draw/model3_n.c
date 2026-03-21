@@ -52,12 +52,12 @@ void SortEnvPrim(void) {
     if ((func_001C5C30() != 0) || (func_0025CF20() != 0)) {
         envpacketdata.head_ep.test_d = 0x5000D;
     } else {
-        envpacketdata.head_ep.test_d  = ((s64)D_00366900 << 4) | 0x5000D;
+        envpacketdata.head_ep.test_d  = ((long)D_00366900 << 4) | 0x5000D;
     }
 
     if (func_002D7B20() != 0) {
         envpacketdata.head_ep.fba_d = func_001CC6F0();
-        envpacketdata.head_ep.test_d = ((s64)D_00366908 << 4) | 0x5000B;
+        envpacketdata.head_ep.test_d = ((long)D_00366908 << 4) | 0x5000B;
     } else {
          envpacketdata.head_ep.fba_d = 0;
     }
@@ -69,13 +69,12 @@ void SortEnvPrim(void) {
     CharacterOt_Append(0xFFF, (__int128*) &ep->head_ep.unk0x70); // @todo maybe head and tail combined into the same struct?
 }
 
-
 void Model3Draw_n(void* scp_d_, void* model_, void* work_, float (*mwm)[4]) {
     struct Model * model = (Model* )model_; // r2
     struct ModelWork * mwork = (ModelWork*) work_; // r16
     struct SubCharacterDisp * scp_d = (SubCharacterDisp *) scp_d_; // r17
     int pef; // r2
-    int unk;
+    float* cluster_weights;
 
 
     if (func_0023D040() != 0) {
@@ -85,8 +84,8 @@ void Model3Draw_n(void* scp_d_, void* model_, void* work_, float (*mwm)[4]) {
         func_001C5CD0();
         model_common_work = (ModelCommonWork*) func_001C5CA0();
         model3_junk.fogcol = func_001D2E20();
-        model3_junk._unknown = NULL;
-        model3_junk._unknown_vi00 = NULL;
+        model3_junk.unk1B8 = NULL;
+        model3_junk.unk1B0 = NULL;
     
     
         Model3UpdateMatrices(model, mwork, mwm, scp_d->sc.status & 0x2000);
@@ -99,8 +98,8 @@ void Model3Draw_n(void* scp_d_, void* model_, void* work_, float (*mwm)[4]) {
         // @todo not really sure how any of this lines up to the sh2 code...
         if (func_001CC680() != 0) {
             if (func_001D0EB0() != 0) {
-                unk = func_001D3780(mwork);
-                ClusterAnimeGetWeights(func_001CC670(), unk);
+                cluster_weights = func_001D3780(mwork);
+                ClusterAnimeGetWeights(func_001CC670(), cluster_weights);
             }
             func_001D2C60(model, mwork);
             if (func_001D0F00() != 0) {

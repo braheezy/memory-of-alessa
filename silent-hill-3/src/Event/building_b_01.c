@@ -1,9 +1,5 @@
 #include "building_b_01.h"
 
-static inline int get_bit(int bit) {
-    return (D_1D31670[bit / 32] >> (bit % 32)) & 1;
-}
-
 INCLUDE_ASM("asm/nonmatchings/Event/building_b_01", func_01F6D680_building_b_01);
 
 INCLUDE_ASM("asm/nonmatchings/Event/building_b_01", func_01F6D6E0_building_b_01);
@@ -34,7 +30,7 @@ void func_01F6E2A0_building_b_01(void) {
 
     switch (RoomName()) {                              
         case BUILDING_OTHERWORLD_BATHTUB_ROOM:
-            if (((D_01D31640 >> 0x12) & 1) && !((D_01D31640 >> 0x13) & 1)) { //after the bathtub room awakening cutscene ???
+            if ((GET_BIT(D_01D31640, 0x12)) && !((GET_BIT(D_01D31640, 0x13)))) { //after the bathtub room awakening cutscene ???
                 func_001C2290(2, 0.0f); 
             }
             D_01F6F138_building_b_01 = 0;
@@ -65,7 +61,7 @@ void func_01F6E360_building_b_01(void) {
                 D_1D31714 &= 0xFFFF7FFF;
             }
     
-            if (!get_bit(0xE)) { //oxydol check
+            if (!GET_FLAG(D_1D31670, 0xE)) { //oxydol check
                 func_0016CA40(0x12);
                 D_1D31714 |= 0x4000;
                 break;
@@ -76,7 +72,7 @@ void func_01F6E360_building_b_01(void) {
             break;
             
         case BUILDING_OTHERWORLD_VINCENT_CORRIDOR:
-            if (!((D_1D3166C >> 0x1C) & 1)) { //check if player hasnt read heather's photo letter yet
+            if (!GET_BIT(D_1D3166C, 0x1C)) { //check if player hasnt read heather's photo letter yet
                 func_0016CA40(6);
                 D_1D31714 |= 0x2000;
                 break;

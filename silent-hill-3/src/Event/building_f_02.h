@@ -9,7 +9,7 @@
 
 void func_0016CA40(int);                                 
 int RoomName(void);                                
-int GetRiddleLevel(void);   
+u_char GetRiddleLevel(void);   
 
 extern u_int D_1D31668;
 extern u_int D_1D3166C;
