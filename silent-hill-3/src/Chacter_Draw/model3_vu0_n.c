@@ -291,7 +291,7 @@ static void MakePartTransferPacket_Vu0(Part *part, sceVif0Packet *pk)
             );
         }
 
-        if (model3_junk._unknown_vi00 != NULL) {
+        if (model3_junk.unk1B0 != NULL) {
             int n_cluster_data = part->n_cluster_data;
             ClusterData *cluster_data_top =
                 (ClusterData *)((u_char *)part + part->cluster_data_offset);

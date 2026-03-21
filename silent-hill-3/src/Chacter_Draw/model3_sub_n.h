@@ -2,6 +2,7 @@
 #define MODEL3_SUB_N_H
 
 #include "common.h"
+#include "model_common.h"
 
 typedef struct ModelWork
 {
@@ -14,5 +15,18 @@ typedef struct ModelWork
     int (*draw_hook)(void *, void *, void *); // offset 0x20, size 0x4
     void *draw_hook_data;                     // offset 0x24, size 0x4
 } ModelWork;
+
+extern Model3Junk model3_junk;
+void shMulMatrix(sceVu0FMATRIX m0, sceVu0FMATRIX m1, sceVu0FMATRIX m2);
+
+extern int initialized;
+
+/**
+ * @brief Gets cluster weights from `ModelWork`.
+ */
+float* func_001D3780(void *work_);
+
+extern float func_001B4200(void);
+extern float func_001B4210(void);
 
 #endif

@@ -2,6 +2,7 @@
 #define COMMON_H
 
 #pragma divbyzerocheck on
+#pragma mpwc_relax     on
 
 #include "libvu0.h"
 
@@ -30,8 +31,8 @@ typedef unsigned int u_long128;
 #define MIN(a,b) ((a) > (b) ? (b) : (a))
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 
-#define READ_UNCACHED(addr) ((((u_int)(addr)) & 0x0fffffff) | 0x20000000)
-
+#define READ_UNCACHED(addr)      ((((u_int)(addr)) & 0x0fffffff) | 0x20000000)
+#define GIF_REG(reg, n) ((u_long)(reg) << ((n) * 4))
 #define GET_FLAG(x, i) (((x[i >> 5]) >> (i & 0x1F)) & 1)
 #define SET_FLAG(x, i) ((x[i >> 5]) |= (1 << (i & 0x1F)))
     
