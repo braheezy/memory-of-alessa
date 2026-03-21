@@ -96,7 +96,7 @@ int func_01F6D9E0_amusement_02(void) {
 
     switch (D_01F76688_amusement_02) {              
         case 0:    
-            if (!(((u_int) D_1D316A0 >> 0x19) & 1)) {
+            if (!(GET_BIT(D_1D316A0, 0x19))) {
                 D_01F7AB70_amusement_02 = 0x29;
             } else {
                 D_01F7AB70_amusement_02 = 0x2A;
@@ -288,7 +288,7 @@ int func_01F6F560_amusement_02(int arg0) {
             temp_v0 = arg0 >> 5;
             if (!((D_01F7AB30_amusement_02[temp_v0] >> (arg0 & 0x1F)) & 1)) {
                 var_v0 = func_0016C1C0(0x2F);
-            } else if (!((D_1D316A0 >> 24) & 1) && (D_01F7AB38_amusement_02[temp_v0] >> (arg0 & 0x1F)) & 1) {
+            } else if (!(GET_BIT(D_1D316A0, 24)) && (D_01F7AB38_amusement_02[temp_v0] >> (arg0 & 0x1F)) & 1) {
                 D_1D316A0 |= 0x1000000;
                 var_v0 = func_0016C1C0(0x2D);
             } else {

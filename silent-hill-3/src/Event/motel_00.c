@@ -86,7 +86,7 @@ void func_01F6D9A0_motel_00(void) {
     if (func_001643D0() == 0) {
         func_0016CA40(1);
     }
-    if (!(((u32) D_1D31684 >> 3) & 1)) {
+    if (!GET_BIT(D_1D31684, 3)) {
         func_0016CA40(4);
     } else {
         func_0016CA40(5);

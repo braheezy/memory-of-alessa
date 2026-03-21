@@ -123,7 +123,7 @@ u_int func_01F6E6A0_amusement_00(int arg0) {
     int x;
     switch (arg0) {
         case 1:
-        x = (D_1D3169C >> 9) & 1 ? 0 : 1;
+        x = GET_BIT(D_1D3169C, 9) ? 0 : 1;
         break;
     }
     return x;
@@ -138,7 +138,7 @@ void func_01F6E810_amusement_00(void) {
     D_01F72D90_amusement_00 = 1;
     switch ((short)func_00170810()) {
     case 0xD6:
-        if (!(((u_int)D_1D3169C >> 6) & 1)) {
+        if (!(GET_BIT(D_1D3169C, 6))) {
             sp10 = D_01F72C20_amusement_00;
             D_01F72DA0_amusement_00 = func_0016D240(0x3B60, &sp10, 0, 0, 1.0f, 5000.0f);
             return;
@@ -146,7 +146,7 @@ void func_01F6E810_amusement_00(void) {
         D_01F72DA0_amusement_00 = -1;
         return;
     case 0xD7:
-        if (!(((u_int)D_1D3169C >> 6) & 1)) {
+        if (!(GET_BIT(D_1D3169C, 6))) {
             sp20 = D_01F72C30_amusement_00;
             D_01F72DA0_amusement_00 = func_0016D240(0x3B60, &sp20, 0, 0, 1.0f, 5000.0f);
         } else {

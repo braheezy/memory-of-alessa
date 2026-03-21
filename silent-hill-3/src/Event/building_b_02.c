@@ -26,7 +26,7 @@ void func_01F6DB60_building_b_02(void) { //I will debug it later
         if ((*var_s1 == 0xDB || *var_s1 == 0xDC)) {
             continue;
         }
-        if (!((D_1D31670 >> 0x11) & 1)) {
+        if (!GET_BIT(D_1D31670, 0x11)) {
             shCharacter_Manage_Delete(0x20A, *var_s1);
             continue;
         }
@@ -49,7 +49,7 @@ int func_01F6DE10_building_b_02(void) { //this is similar to func_01F6E700_build
 
     var_s0 = 0;
 
-    if (!((D_1D31670 >> 0x16) & 1)) {
+    if (!GET_BIT(D_1D31670, 0x16)) {
         D_01F6EF00_building_b_02 = 0;
         D_01F6EF08_building_b_02 = 0.0f;
         D_1D31670 |= 0x400000;
@@ -140,14 +140,14 @@ void func_01F6E090_building_b_02(void) {
             break;
             
         case BUILDING_OTHERWORLD_4F_SILVER_COIN_ROOM:
-            if (!((D_1D31670 >> 0xF) & 1)) { //check if you have the silver coin
+            if (!GET_BIT(D_1D31670, 0xF)) { //check if you have the silver coin
                 func_0016CA40(1);
                 D_1D31714 |= 0x02000000; //if you dont
             } else {
                 D_1D31714 &= 0xFDFFFFFF; //when you grab it
             }
             
-            if (!((D_1D31644 >> 0x14) & 1)) { //if you havent solved the vending machine puzzle yet
+            if (!GET_BIT(D_1D31644, 0x14)) { //if you havent solved the vending machine puzzle yet
                 D_1D31714 |= 0x04000000;
                 D_1D31714 |= 0x08000000;
                 break;
@@ -157,7 +157,7 @@ void func_01F6E090_building_b_02(void) {
             break;
             
         case BUILDING_OTHERWORLD_4F_SILVER_COIN_CORRIDOR:
-            if (((D_1D31670 >> 0x12) & 1) && !((D_1D31670 >> 0x13) & 1)) {
+            if (GET_BIT(D_1D31670, 0x12) && !GET_BIT(D_1D31670, 0x13)) {
                 func_01F6DC70_building_b_02(D_1D31670); //it probably has something to do with spawning the extra dog, but I need to match it first
             }
             break;

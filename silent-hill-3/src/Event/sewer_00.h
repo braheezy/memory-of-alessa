@@ -73,6 +73,4 @@ extern u_int D_1D31644;
 extern u_int D_1D31660;
 extern u_int D_1D31664;
 
-#define GET_BIT(x, i) (((x) >> (i)) & 1)
-
 #endif

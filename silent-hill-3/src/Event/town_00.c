@@ -90,7 +90,7 @@ void func_01F6D8A0_town_00() {
             case 1:
                 break;
             case 2:
-                if (!((D_1D31684 >> 3) & 1)) {
+                if (!GET_BIT(D_1D31684, 3)) {
                     shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, (u_short) *cur);
                 }
                 break;
@@ -98,7 +98,7 @@ void func_01F6D8A0_town_00() {
                 if (action_level < 3) {
                     break;
                 }
-                if (((D_1D31684 >> 3) & 1) == 0) {
+                if (GET_BIT(D_1D31684, 3) == 0) {
                     // ???
                 } else if (3 >= count) {
                     continue;
@@ -127,7 +127,7 @@ void func_01F6DA00_town_00() {
     if (state_town_00.z == 0) {
         func_01F6D9F0_town_00();
     }
-    if ((D_1D31684 >> 3) & 1) {
+    if (GET_BIT(D_1D31684, 3)) {
         func_001AF0B0();
         return;
     }

@@ -198,9 +198,9 @@ void func_01F6E800_apart_00(void) {
         case APARTMENTS_ROOFTOP:
             func_01F6E050_apart_00();
             D_01F70060_apart_00 = 0;
-            if (!((D_01D31640 >> 0x16) & 1)) {
+            if (!GET_BIT(D_01D31640, 0x16)) {
                 func_00316C50(0);
-                if ((D_01D31640 >> 0x15) & 1) {
+                if (GET_BIT(D_01D31640, 0x15)) {
                     func_001C2290(2, 0.0f);
                 }
             }

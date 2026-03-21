@@ -166,7 +166,7 @@ int func_01F6DB60_church_00(void)
 
     case 1:
         if (func_0019A9B0(0.5f) != 0) {
-            if (((u_int)D_1D316A4 >> 14) & 1) {
+            if (GET_BIT(D_1D316A4, 14)) {
                 D_01F6E600_church_00 = 3;
             } else {
                 D_01F6E600_church_00 = 2;
@@ -221,19 +221,19 @@ void func_01F6DCF0_church_00(Q* arg0, int* arg1, Q* arg2, int*  arg3, int*  arg4
 
 void func_01F6DD40_church_00(void) {
     D_01F6E600_church_00 = 0;
-    if (!((D_1D31644 >> 0x18) & 1)) {
+    if (!GET_BIT(D_1D31644, 0x18)) {
         func_0016DCE0(0xA);
         func_0016E400(0x18, 0);
     }
 }
 
 void func_01F6DD90_church_00(void) {
-    if ((D_1D31644 >> 0x18) & 1) {
+    if (GET_BIT(D_1D31644, 0x18)) {
         func_0016CA40(1);
         func_0016CA40(0xC);
         func_0016CA40(2);
     }
-    if (!((D_1D316A4 >> 0xD) & 1)) {
+    if (!GET_BIT(D_1D316A4, 0xD)) {
         func_0016CA40(0xD);
     }
 }

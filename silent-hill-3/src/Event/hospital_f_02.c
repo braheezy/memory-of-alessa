@@ -33,7 +33,7 @@ int func_01F6D8B0_hospital_f_02(void) {
     int ret;
 
     ret = 0;
-    if (!((D_1D31684 >> 0x16) & 1)) {
+    if (!GET_BIT(D_1D31684, 0x16)) {
         D_01F6FF98_hospital_f_02 = 1;
         func_0016C3C0();
         D_1D31684 |= 0x400000;
@@ -130,7 +130,7 @@ int func_01F6E3A0_hospital_f_02(void) {
     int ret;
 
     ret = 0;
-    if (!((D_1D31688 >> 4) & 1)) {
+    if (!GET_BIT(D_1D31688, 4)) {
         D_01F6FF80_hospital_f_02 = 0;
         D_1D31688 |= 0x10;
         D_01F6FF88_hospital_f_02 = 0.0f;
@@ -164,14 +164,14 @@ int func_01F6E3A0_hospital_f_02(void) {
 }
 
 int func_01F6E550_hospital_f_02(void) {
-    if (!((D_1D31688 >> 0x13) & 1)) {
+    if (!GET_BIT(D_1D31688, 0x13)) {
         func_00190A20(2);
         D_1D31688 |= 0x80000;
     }
-    if (func_0016C1C0(!((D_1D31688 >> 0x10) & 1) ? 0x51 : 0x52) == 0) {
+    if (func_0016C1C0(!GET_BIT(D_1D31688, 0x10) ? 0x51 : 0x52) == 0) {
         return 0;
     }
-    if (!((D_1D31688 >> 0x10) & 1)) {
+    if (!GET_BIT(D_1D31688, 0x10)) {
         D_1D31688 |= 0x10000;
         D_1D316F8 |= 0x200000;
     }
@@ -186,7 +186,7 @@ void func_01F6E630_hospital_f_02(void) {
     int var_v1_2;
 
     D_01F6FF90_hospital_f_02 = 0;
-    if (!((D_1D31684 >> 1) & 1)) {
+    if (!GET_BIT(D_1D31684, 1)) {
         func_01F6EE10_hospital_f_02();
         D_1D31684 |= 2;
     }
@@ -197,7 +197,7 @@ void func_01F6E630_hospital_f_02(void) {
             break;
 
         case 0xAF:
-            if (((D_1D31684 >> 0xF) & 1) && !((D_1D31684 >> 0x19) & 1) && !((D_1D31688 >> 2) & 1) && !((D_1D31644 >> 5) & 1) && !((D_1D31684 >> 0x18) & 1)) {
+            if (GET_BIT(D_1D31684, 0xF) && !GET_BIT(D_1D31684, 0x19) && !GET_BIT(D_1D31688, 2) && !GET_BIT(D_1D31644, 5) && !GET_BIT(D_1D31684, 0x18)) {
                 D_1D31684 |= 0x800000;
                 D_1D31684 |= 0x01000000;
                 break;
@@ -206,14 +206,14 @@ void func_01F6E630_hospital_f_02(void) {
             break;
         case 0xB0:
             D_1D31724 |= 0x80;
-            if (((D_1D31684 >> 0xC) & 1) && !((D_1D31684 >> 0x1C) & 1) && !((D_1D31688 >> 2) & 1) && !((D_1D31644 >> 5) & 1) && !((D_1D31644 >> 0xC) & 1) && !((D_1D31684 >> 0x1B) & 1)) {
+            if ((GET_BIT(D_1D31684, 0xC) && !GET_BIT(D_1D31684, 0x1C) && !GET_BIT(D_1D31688, 2) && !GET_BIT(D_1D31644, 5) && !GET_BIT(D_1D31644, 0xC)) && !GET_BIT(D_1D31684, 0x1B)) {
                 D_1D31684 |= 0x08000000;
                 D_1D31684 |= 0x04000000;
             } else {
                 D_1D31684 &= 0xFBFFFFFF;
             }
 
-            if ((D_1D31688 >> 0x16) & 1) {
+            if (GET_BIT(D_1D31688, 0x16)) {
                 D_1D31688 &= 0xFFBFFFFF;
                 D_1D31684 |= 0x04000000;
                 break;
@@ -225,22 +225,22 @@ void func_01F6E630_hospital_f_02(void) {
             break;
         case 0xB3:
             var_a0 = 0;
-            if ((D_1D31684 >> 0xF) & 1) {
+            if (GET_BIT(D_1D31684, 0xF)) {
                 var_a0 += 1;
             }
-            if ((D_1D31684 >> 0x12) & 1) {
+            if (GET_BIT(D_1D31684, 0x12)) {
                 var_a0 += 1;
             }
-            if ((D_1D31684 >> 0x15) & 1) {
+            if (GET_BIT(D_1D31684, 0x15)) {
                 var_a0 += 1;
             }
-            if ((D_1D31684 >> 0x19) & 1) {
+            if (GET_BIT(D_1D31684, 0x19)) {
                 var_a0 += 1;
             }
-            if ((D_1D31684 >> 0x1C) & 1) {
+            if (GET_BIT(D_1D31684, 0x1C)) {
                 var_a0 += 1;
             }
-            if ((D_1D31688 >> 0x0) & 1) var_a0++;
+            if (GET_BIT(D_1D31688, 0x0)) var_a0++;
             if (var_a0 >= 3) {
                 D_1D31688 |= 0x2;
             } else {
@@ -260,7 +260,7 @@ void func_01F6E950_hospital_f_02(void) {
 
     switch(RoomName()) {
         case 0xB4:
-            if ((D_1D31680 >> 0x16) & 1) {
+            if (GET_BIT(D_1D31680, 0x16)) {
                 func_01F6D680_hospital_f_02();
             }
         default:
@@ -287,7 +287,7 @@ INCLUDE_ASM("asm/nonmatchings/Event/hospital_f_02", func_01F6EA20_hospital_f_02)
 INCLUDE_ASM("asm/nonmatchings/Event/hospital_f_02", func_01F6ECC0_hospital_f_02); // need jumptable
 
 int func_01F6EE10_hospital_f_02(void) {
-    if (!((D_1D31684 >> 2) & 1)) {
+    if (!GET_BIT(D_1D31684, 2)) {
         func_01F6ECC0_hospital_f_02();
         D_1D31684 |= 4;
     }

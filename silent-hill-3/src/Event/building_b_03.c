@@ -7,7 +7,7 @@ int func_01F6D8F0_building_b_03(void) { //All of this handle the interaction wit
     if (!GET_FLAG(D_1D31670, 0x26)) {
         func_00190A20(2);
         D_1D31670[1] |= 0x40;
-        if (!((D_1D31670[1] >> 3) & 1)) {
+        if (!GET_BIT(D_1D31670[1], 3)) {
             D_01F6FC30_building_b_03 = 0x19; //this gets set the FIRST TIME you interact with with the "Flame Purifies All" painting, where Heather mentions that she has already seen the painting
         } else {
             D_01F6FC30_building_b_03 = 0x1A; //this gets set the SECOND TIME you interact with with the "Flame Purifies All" painting, heather doesnt mention that she saw the painting anymore

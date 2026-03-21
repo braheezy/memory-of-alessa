@@ -116,7 +116,7 @@ int func_01F6DAB0_sewer_00(void) {
   switch (D_01F6FE20_sewer_00) {
     case 0:
       func_00190A20(2);
-      if ((D_1D31664 >> 2) & 1) {
+      if (GET_BIT(D_1D31664, 2)) {
         func_001C2290(2, 0.0f);
         D_01F6FE20_sewer_00 = 3;
         continue;
@@ -128,7 +128,7 @@ int func_01F6DAB0_sewer_00(void) {
       }
       func_0016C3C0();
       if (func_0016CB70() == 0) {
-        if ((D_1D31660 >> 21) & 1) {
+        if (GET_BIT(D_1D31660, 21)) {
           func_001C2290(3, 0.8f);
           D_01F6FE20_sewer_00 = 3;
           func_0013D250(0, D_01F6F9F0_sewer_00, 1.0f);
@@ -144,7 +144,7 @@ int func_01F6DAB0_sewer_00(void) {
       D_01F6FE20_sewer_00 = 4;
       continue;
     case 2:
-      if ((D_1D31660 >> 24) & 1) {
+      if (GET_BIT(D_1D31660, 24)) {
         if (func_0016C1C0(0x1B) == 0) {
           return 0;
         }

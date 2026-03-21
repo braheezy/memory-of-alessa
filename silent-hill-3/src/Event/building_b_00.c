@@ -106,7 +106,7 @@ void func_01F6E270_building_b_00(void) {
 void func_01F6E2D0_building_b_00(void) {
     switch (RoomName()) {                              
         case 0x81:
-            if (!((D_1D31644 >> 0x16) & 1)) {
+            if (!GET_BIT(D_1D31644, 0x16)) {
                 func_0016CA40(1);
                 func_0016CA40(2);
                 break;
